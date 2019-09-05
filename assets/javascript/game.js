@@ -8,7 +8,10 @@ console.log(computerSelection)
 
 document.onkeyup = function(event) {
     var userGuess = event.key; 
-    console.log (userGuess);}
+    console.log (userGuess);
+    if (userGuess === computerSelection)
+    console.log("working")
+}
 
 // var winsText = document.getElementById (wins-text)
 // var lossesText = document.getElementById (losses-text)
