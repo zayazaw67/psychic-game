@@ -11,24 +11,42 @@ var guessesLeftText = document.getElementById("guessesLeft-text")
 var guessedLettersText = document.getElementById("guessedLetters-text")
 
 var computerSelection = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+var compChoice = computerChoices[computerSelection];
 console.log(computerSelection)
 
 
 document.onkeyup = function (event) {
     var userGuess = event.key.toLowerCase();
+    console.log(userGuess);
     if (userGuess === computerSelection) {
-        console.log("you win")
-        wins++
-    winsText.textContent = "Wins: " + wins;}
+        console.log("you win");
+        wins++;
+        winsText.textContent = "Wins: " + wins;
+    }
     else {
-        guessesLeft--
-    console.log(guessesLeft);
+        console.log(guessesLeft);
+        guessesLeft --;
+        // guessedLettersText.textContent = guessedLetters;
+
+    }
+    if (guessesLeft == 0) {
+        losses ++;
+        lossesText.textContent = "Losses: " +losses;}
+}
+  
+    
+
+
+// if (guessesLeft = 0)  {
+//     losses ++
+//     lossesText.textContent = "Losses: " + losses
+// }
+
+
     //if statement when guesses =0 
     // losses ++
     // lossesText.textContent = "Losses: " + losses
-}
-}
 
 
     // wins++
-    // winsText.textContent = "Wins: " + wins;
+    // winsText.textContent = "Wins: " + wins
