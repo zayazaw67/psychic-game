@@ -18,7 +18,11 @@ console.log(computerSelection)
 document.onkeyup = function (event) {
     var userGuess = event.key.toLowerCase();
     console.log(userGuess);
-
+    // how to make if user does not pick a-z???
+    // if (userGuess = [a-z]) {
+    //     console.log(userGuess)
+    // }
+    // else {alert("Please pick a letter")}
     if (userGuess === computerSelection) {
         console.log("you win");
         wins++;
