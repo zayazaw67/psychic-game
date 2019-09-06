@@ -7,8 +7,8 @@ var guessedLetters = [];
 
 var winsText = document.getElementById("wins-text")
 var lossesText = document.getElementById("losses-text")
-var guessesLeftText = document.getElementById("guessesLeft-text")
-var guessedLettersText = document.getElementById("guessedLetters-text")
+var guessesLeftText = document.getElementById("guessesleft-text")
+var guessedLettersText = document.getElementById("guessedletters-text")
 
 
 var computerSelection = computerChoices[Math.floor(Math.random() * computerChoices.length)];
@@ -31,14 +31,15 @@ document.onkeyup = function (event) {
     else {
         console.log(guessesLeft);
         guessesLeft --;
-        // guessesLeftText.textContent = ("Guesses Left: " + guessesLeft);
+        guessesLeftText.textContent = ("Guesses Left: " + guessesLeft);
+        
     }
     if (guessesLeft === 0) {
         losses ++;
         alert("You Lost!");
         lossesText.textContent = "Losses: " + losses;
         guessedLetters = [];
-        // guessedLettersText.textContent = guessedLetters;
+        guessedLettersText.textContent = guessedLetters;
         guessesLeft = 5;
         computerSelection = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         compChoice = computerChoices[computerSelection];
