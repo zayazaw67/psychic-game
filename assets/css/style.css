@@ -1,0 +1,15 @@
+body {
+    color: gray;
+    text-align: center;
+}
+#wins-text { 
+    color: green
+}
+
+#losses-text {
+    color:red;
+}
+
+body {
+    background: #ffffff;
+}

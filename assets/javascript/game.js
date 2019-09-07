@@ -4,6 +4,7 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 5;
 var guessedLetters = [];
+var regex = /[a-z]/;
 
 var winsText = document.getElementById("wins-text")
 var lossesText = document.getElementById("losses-text")
@@ -19,20 +20,21 @@ document.onkeyup = function (event) {
     var userGuess = event.key.toLowerCase();
     console.log(userGuess);
     // how to make if user does not pick a-z???
-    if (userGuess === [/a-zA-Z/]) {
-        console.log(userGuess)
-    }
-    else {alert("Please pick a letter");}
+    var userChoice = event.key;
+    // make sure the user selects a value a-z
+      if (!regex.test(userChoice)) {
+        alert("please enter a letter");}
+      
 
-    if (userGuess === computerSelection) {
-        alert("you win");
+    else if (userGuess === computerSelection) {
+        alert("You won, guess another letter to play again!");
         wins++;
         guessesLeft = 5;
         winsText.textContent = "Wins: " + wins;
         computerSelection = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         compChoice = computerChoices[computerSelection];
         reset()
-        // console.log(computerSelection)
+        console.log(computerSelection)
     }
     else {
         // console.log(guessesLeft);
@@ -40,8 +42,6 @@ document.onkeyup = function (event) {
         guessesLeftText.textContent = ("Guesses Left: " + guessesLeft);
         guessedLetters.push(userGuess);
         display();
-        //push userguess to array
-        //call the function for letters
         
     }
     if (guessesLeft === 0) {
@@ -56,12 +56,15 @@ document.onkeyup = function (event) {
         computerSelection = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         compChoice = computerChoices[computerSelection];
     }
+    else {
+        console.log(userChoice);
+      } 
 }
   
 function display() {
     // display.push (guessedLettersText)
     console.log(guessedLetters);
-    guessedLettersText.innerHTML = guessedLetters;
+    guessedLettersText.innerHTML = "Letters Guessed: "  + guessedLetters;
 }
 
 function reset() {
